@@ -1,0 +1,21 @@
+{% extends 'test_app/base.html' %}
+
+{% block header %}
+        <ul>
+            {% include 'test_app/includes/inc_header.html' %}
+            <li>
+                <a href={% url 'test_app:goods' %}>Товары</a>
+            </li>
+        </ul>
+    <hr>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="form-control" type="submit" value="сохранить">
+        </form>
+    </div>
+{% endblock %}
