@@ -1,0 +1,16 @@
+<table id="table">
+    <tr class="row-header">
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Поставщик</th>
+        <th>Создано</th>
+    </tr>
+    {% for item in goods %}
+        <tr class="row-content">
+            <td>{{ item.title }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.vendor }}</td>
+            <td>{{ item.created_at }}</td>
+        </tr>
+    {% endfor %}
+</table>
