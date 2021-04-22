@@ -1,0 +1,34 @@
+{% extends 'test_app/base.html' %}
+
+{% block header %}
+        <ul>
+            {% include 'test_app/includes/inc_header.html' %}
+            <li>
+                <a href={% url 'test_app:index' %}>На главную</a>
+            </li>
+        </ul>
+    <hr>
+{% endblock %}
+
+{% block content %}
+    <h1>Все товары</h1>
+
+    {% if user.is_authenticated %}
+        <button>
+            <a href="{% url 'test_app:create_goods' %}">Добавить товар</a>
+        </button>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Цена</th>
+        </tr>
+        {% for item in goods %}
+            <tr>
+                <td>{{ item.title }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

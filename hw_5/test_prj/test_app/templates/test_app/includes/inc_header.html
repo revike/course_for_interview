@@ -1,0 +1,15 @@
+<h1>Test market App</h1>
+    {% if user.is_superuser %}
+        <li>
+            <a href="{% url 'test_app:index' %}admin/">Админка</a>
+        </li>
+    {% endif %}
+    {% if not user.is_authenticated %}
+        <li>
+            <a href="{% url 'test_app:index' %}admin/login/">Войти</a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{% url 'test_app:index' %}admin/logout/">Выйти</a>
+        </li>
+    {% endif %}
