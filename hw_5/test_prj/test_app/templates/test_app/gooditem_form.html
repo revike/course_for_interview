@@ -1,0 +1,5 @@
+<form id="newItemForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input id="save" type="button" value="сохранить">
+</form>
