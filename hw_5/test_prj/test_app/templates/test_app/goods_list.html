@@ -1,0 +1,24 @@
+{% extends 'test_app/base.html' %}
+{% load static %}
+
+
+{% block header %}
+        <ul>
+            {% include 'test_app/includes/inc_header.html' %}
+            <li>
+                <a href="{% url 'test_app:index' %}">На главную</a>
+            </li>
+        </ul>
+    <hr>
+{% endblock %}
+
+{% block content %}
+    <h1>Все товары</h1>
+
+    {% if user.is_authenticated %}
+        <button type="button" class="js-create-good" data-url="{% url 'test_app:good_create' %}">Добавить товар</button>
+    {% endif %}
+
+    {#  Вынес таблицу в отдельный файл, чтобы ее можно было использовать в ajax запросах  #}
+    {% include 'test_app/goods_table.html' %}
+{% endblock %}
